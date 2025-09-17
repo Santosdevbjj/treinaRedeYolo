@@ -1,0 +1,5 @@
+train: ./dataset/images/train
+val: ./dataset/images/val
+
+nc: 2  # número de classes (ajuste aqui)
+names: ['classe1', 'classe2']  # edite com suas classes
