@@ -8,9 +8,6 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 def calcular_metricas(y_true, y_pred):
-    """
-    Calcula métricas principais: Acurácia, Precisão, Recall e F1.
-    """
     metrics = {
         "accuracy": accuracy_score(y_true, y_pred),
         "precision": precision_score(y_true, y_pred),
@@ -19,20 +16,12 @@ def calcular_metricas(y_true, y_pred):
     }
     return metrics
 
-
 def exibir_metricas(metrics: dict):
-    """
-    Exibe as métricas formatadas no console.
-    """
     print("📊 Resultados das Métricas:")
     for k, v in metrics.items():
         print(f"{k.capitalize()}: {v:.4f}")
 
-
 def plotar_matriz_confusao(y_true, y_pred, labels=None):
-    """
-    Plota a matriz de confusão usando seaborn.
-    """
     cm = confusion_matrix(y_true, y_pred)
     plt.figure(figsize=(6,4))
     sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
@@ -42,10 +31,6 @@ def plotar_matriz_confusao(y_true, y_pred, labels=None):
     plt.title("Matriz de Confusão")
     plt.show()
 
-
 def gerar_relatorio(y_true, y_pred, target_names=None):
-    """
-    Gera um relatório detalhado com precisão, recall e F1 por classe.
-    """
     print("📑 Relatório de Classificação:")
     print(classification_report(y_true, y_pred, target_names=target_names))
